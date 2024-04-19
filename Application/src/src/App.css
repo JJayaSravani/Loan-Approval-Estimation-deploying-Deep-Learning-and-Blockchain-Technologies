@@ -1,0 +1,128 @@
+.App {
+  text-align: center;
+}
+
+.App-header {
+  background-color: #084a52;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: normal;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+
+
+div.input-container {
+  width:100%;
+  overflow:auto;
+  margin-top: 100px;
+}
+div.input-container div {
+  width:40%;  
+  float:left;
+}
+
+.input-group {
+  /*width: 50%;  Adjust the width as needed */
+  text-align: right; /* Align text to the left within each input-group */
+  margin-right: 20px;
+  margin-left:20px ; /* Add some margin between input groups */
+}
+.center-container {
+  display: flex;
+  justify-content: center;
+  width:100%;
+  margin-top: 15px; /* Add margin for spacing */
+}
+button {
+  background-color:#1b9d7d;
+  border: none;
+  color: white;
+  padding: 10px 22px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 1px 1px;
+  cursor: pointer;
+  border-radius: 12px;
+}
+
+/* App.css for 2nd half*/
+
+/* Global Styles 
+body {
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f4;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Header Styles 
+.App-header {
+  background-color: #282c34;
+  color: white;
+  padding: 20px;
+  text-align: center;
+}
+
+h1 {
+  margin: 0;
+}
+
+*/
+.info
+{
+  font-size: 16px;
+}
+
+
+
+/* Search Bar Styles */
+.search-bar {
+  margin-top: 20px;
+  margin-bottom: 30px;
+}
+
+/* Table Styles */
+
+table {
+  width: 90%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+  margin-left: 65px;
+  
+}
+
+th, td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+th {
+  background-color: #084a52;
+  color: white;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .input-container {
+    flex-direction: column;
+  }
+
+  .input-group {
+    margin-right: 0;
+    margin-bottom: 20px;
+  }
+}
+
