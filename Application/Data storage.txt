@@ -1,0 +1,75 @@
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.17;
+
+contract data_storage {
+    uint256 public blockCount; // Add blockCount variable
+    string[] public applicationNumbers; // Declare and initialize the applicationNumbers array
+
+    struct Block {
+        string person_name;
+        string person_income;
+        string person_emp_length;
+        string loan_grade;
+        string application_no;
+        string loan_amnt;
+        string loan_int_rate;
+        string loan_percent_income;
+        string cb_person_cred_hist_length;
+        string approval;
+    }
+
+    mapping(string => Block) public blocks; // Map application number to Block
+
+    function addInformation(
+        string memory _person_name,
+        string memory _person_income,
+        string memory _person_emp_length,
+        string memory _loan_grade,
+        string memory _application_no,
+        string memory _loan_amnt,
+        string memory _loan_int_rate,
+        string memory _loan_percent_income,
+        string memory _cb_person_cred_hist_length,
+        string memory _approval
+    ) external {
+        // Create a new Block with the provided information
+        Block memory newBlock = Block({
+            person_name: _person_name,
+            person_income: _person_income,
+            person_emp_length: _person_emp_length,
+            loan_grade: _loan_grade,
+            application_no: _application_no,
+            loan_amnt: _loan_amnt,
+            loan_int_rate: _loan_int_rate,
+            loan_percent_income: _loan_percent_income,
+            cb_person_cred_hist_length: _cb_person_cred_hist_length,
+            approval: _approval
+        });
+        blocks[_application_no] = newBlock;
+        blockCount++; // Increment the blockCount
+        applicationNumbers.push(_application_no); // Add the application number to the applicationNumbers array
+    }
+
+    function GetAllInformation() external view returns (Block[] memory) {
+        // Create an array to store all Blocks
+        Block[] memory allBlocks = new Block[](blockCount);
+
+        // Iterate through all application numbers and retrieve the corresponding Blocks
+        for (uint256 i = 0; i < blockCount; i++) {
+            allBlocks[i] = blocks[applicationNumbers[i]];
+        }
+
+        return allBlocks;
+    }
+
+    // Get information for a specific loan application by application number
+    function GetInformationByApplicationNumber(string memory _application_no) external view returns (Block memory) {
+        // Retrieve the Block using the provided application number
+        return blocks[_application_no];
+    }
+
+    // Function to get the total number of stored loan applications
+    function GetNumberOfBlocks() external view returns (uint256) {
+        return blockCount;
+    }
+}
